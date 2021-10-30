@@ -6,7 +6,26 @@
 2. Configurar Git definiendo el nombre del usuario, el correo electrónico y activar el coloreado de la salida. Mostrar la configuración final.
 
 ~~~
-solución
+>tomas@tomas-VirtualBox:~/Git$ mkdir libro
+>tomas@tomas-VirtualBox:~/Git$ cd libro
+>tomas@tomas-VirtualBox:~/Git/libro$ git init
+>Inicializado repositorio Git vacio en /home/tomas/Git/libro/.git/
+>tomas@tomas-VirtualBox:~/Git/libro$ ls -la
+total 12
+drwxrwxr-x 3 tomas tomas 4096 oct 6 09:40 .
+drwxrwxr-x 4 tomas tomas 4096 oct 6 09:39 ..
+drwxrwxr-x 7 tomas tomas 4096 oct 6 09:40 .git
+
+>tomas@tomas-VirtualBox:~/Git/libro$ git config --global user.email "tomascastello444@gmail.com"
+>tomas@tomas-VirtualBox:~/Git/libro$ git config --global user.name "Tomas"
+>tomas@tomas-VirtualBox:~/Git/libro$ git config --list
+user.email=tomascastello444@gmail.com
+user.name=Tomas
+core.repositoryformatversion=0
+corefilemode=true
+core.bare=false
+core.logallrefupdates=true
+git config --global color.ui auto
 ~~~
 
 ## Ejercicio 2
@@ -21,7 +40,11 @@ solución
 3. Volver a comprobar una vez más el estado del repositorio.
 
 ~~~
-solución
+git status
+vim índex.txt
+git status
+git add índex.txt
+git status
 ~~~
 
 ## Ejercicio 3
@@ -29,7 +52,8 @@ solución
 Realizar un commit de los últimos cambios con el mensaje “Añadido índice del libro.” y ver el estado del repositorio.
 
 ~~~
-solución
+git commit -m "Agregat índex del llibre"
+git status
 ~~~
 
 ## Ejercicio 4
@@ -43,7 +67,9 @@ solución
 3. Hacer un commit de los cambios con el mensaje “Añadido capítulo 3 sobre gestión de ramas”.
 
 ~~~
-solución
+vim índex.txt
+git diff
+git commit -m "Agregat capítol 3 sobre gestió de dades"
 ~~~
 
 ## Ejercicio 5
@@ -53,7 +79,9 @@ solución
 3. Volver a mostrar los últimos cambios del repositorio.
 
 ~~~
-solución
+git show
+git commit --amend
+git log
 ~~~
 
 

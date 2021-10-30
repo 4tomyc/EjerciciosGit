@@ -10,7 +10,20 @@ Para hacer estos ejercicios es necesario haber hecho antes los ejercicios sobre 
 4. Volver a comprobar el estado del repositorio.
 
 ~~~git
-solución
+tomas@tomas-VirtualBox:~/Git/capitulos$ vim indice.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git status
+En la rama master
+Cambios no rastreados para el commit:
+  (usa "git add <archivo>..." para actualizar lo que será confirmado)
+  (usa "git restore <archivo>..." para descartar los cambios en el directorio de trabajo)
+	modificado:     indice.txt
+
+sin cambios agregados al commit (usa "git add" y/o "git commit -a")
+tomas@tomas-VirtualBox:~/Git/libro$ 
+tomas@tomas-VirtualBox:~/Git/libro$ git restore indice.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git status
+En la rama master
+nada para hacer commit, el árbol de trabajo está limpio
 ~~~
 
 ## Ejercicio 2
@@ -24,7 +37,26 @@ solución
 7. Volver a comprobar el estado del repositorio.
 
 ~~~git
-solución
+tomas@tomas-VirtualBox:~/Git/libro$ vim indice.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git add indice.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git status
+En la rama master
+Cambios a ser confirmados:
+  (usa "git restore --staged <archivo>..." para sacar del área de stage)
+	modificado:     indice.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git reset .
+Cambios fuera del área de stage tras el reset:
+M	indice.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git status
+En la rama master
+Cambios no rastreados para el commit:
+  (usa "git add <archivo>..." para actualizar lo que será confirmado)
+  (usa "git restore <archivo>..." para descartar los cambios en el directorio de trabajo)
+	modificado:     indice.txt
+
+sin cambios agregados al commit (usa "git add" y/o "git commit -a")
+tomas@tomas-VirtualBox:~/Git/libro$ git checkout -- indice.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git status
 ~~~
 
 ## Ejercicio 3
@@ -40,7 +72,30 @@ solución
 9. Volver a comprobar el estado del repositorio.
 
 ~~~git
-solución
+vim indice.txt
+tomas@tomas-VirtualBox:~/Git/libro$ rm capitulos/capitulo3.txt
+tomas@tomas-VirtualBox:~/Git/libro$ touch capitulos/capitulo4.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git status
+En la rama master
+Cambios a ser confirmados:
+  (usa "git restore --staged <archivo>..." para sacar del área de stage)
+	borrado:        capitulos/capitulo3.txt
+	nuevo archivo:  capitulos/capitulo4.txt
+
+tomas@tomas-VirtualBox:~/Git/libro$ git reset .
+Cambios fuera del área de stage tras el reset:
+D	capitulos/capitulo3.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git status
+tomas@tomas-VirtualBox:~/Git/libro$ git checkout -- .
+tomas@tomas-VirtualBox:~/Git/libro$ git status
+En la rama master
+Archivos sin seguimiento:
+  (usa "git add <archivo>..." para incluirlo a lo que se será confirmado)
+	capitulos/capitulo4.txt
+
+no hay nada agregado al commit pero hay archivos sin seguimiento presentes (usa "git add" para hacerles seguimiento)
+tomas@tomas-VirtualBox:~/Git/libro$ git clean -f
+tomas@tomas-VirtualBox:~/Git/libro$ git status
 ~~~
 
 ## Ejercicio 4
@@ -56,5 +111,28 @@ solución
 9. Comprobar de nuevo el historial y el estado del repositorio.
 
 ~~~git
-solución
+tomas@tomas-VirtualBox:~/Git/libro$ vim indice.txt
+tomas@tomas-VirtualBox:~/Git/libro$ rm capitulos/capitulo3.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git add .
+tomas@tomas-VirtualBox:~/Git/libro$ git commit -m "Borrado accidental"
+[master 3ec23e9] Borrado accidental
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 capitulos/capitulo3.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git status
+En la rama master
+nada para hacer commit, el árbol de trabajo está limpio
+tomas@tomas-VirtualBox:~/Git/libro$ git reset --soft HEAD~1
+tomas@tomas-VirtualBox:~/Git/libro$ git status
+En la rama master
+Cambios a ser confirmados:
+  (usa "git restore --staged <archivo>..." para sacar del área de stage)
+	borrado:        capitulos/capitulo3.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git commit -m "Borrado accidental"
+[master f8d0c74] Borrado accidental
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 capitulos/capitulo3.txt
+tomas@tomas-VirtualBox:~/Git/libro$ git reset --hard HEAD~1
+tomas@tomas-VirtualBox:~/Git/libro$ git status
+En la rama master
+nada para hacer commit, el árbol de trabajo está limpio
 ~~~

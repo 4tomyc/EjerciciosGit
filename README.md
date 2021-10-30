@@ -17,4 +17,4 @@ Se trata de una serie de ejercicio cuyo propósito es introducir el sistema de c
 
 |Autor|IES|
 |-----|---|
-|Manuel Cuevas|IES Jaume II El Just|
+|Tomas Castello|IES Jaume II El Just|
